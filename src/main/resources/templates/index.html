@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>index.html</title>
+  <th:block th:insert="~{include/bs4}"></th:block>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h1><b>이런 귀한 곳에 오신 누추한 당신을 환영합니다~</b></h1>
+  <p><br/></p><hr/><br/>
+  <div>
+    <img src="/images/1.jpg" width="80%" />
+  </div>
+  <div class="mt-5 text-center">
+    <a th:href="@{/userList}" class="btn btn-link btn-sm">회원목록</a>
+    <a th:href="@{/userInput}" class="btn btn-info btn-sm">회원등록</a>
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

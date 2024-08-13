@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>userList.jsp</title>
+  <th:block th:insert="~{include/bs4}"></th:block>
+  <script>
+    'use strict';
+
+    function userDelete(idx) {
+
+      for (var i=0; i<=idx; i++) {
+        alert("회원님의 고유번호는 [" + idx + "]입니다");
+      }
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2 class="text-center">회원 리스트</h2>
+  <div class="row mb-2">
+    <div class="col"><a href="/user/userInput" class="btn btn-success">회원가입</a></div>
+    <div class="col text-right"><a href="/" class="btn btn-warning">돌아가기</a></div>
+  </div>
+  <table class="table table-hover">
+    <tr>
+      <th>번호</th>
+      <th>아이디</th>
+      <th>성명</th>
+      <th>나이</th>
+      <th>주소</th>
+      <th>be go</th>
+    </tr>
+    <th:block th:each="vo, st : ${vos}">
+      <tr>
+        <td th:text="${vo.idx}">번호우</td>
+        <td th:text="${vo.mid}">아이디</td>
+        <td th:text="${vo.name}">이름</td>
+        <td th:text="${vo.age}">나이</td>
+        <td th:text="${vo.address}">주소</td>
+        <td>
+          <a th:href="|javascript:userDelete(${vo.idx})|" class="btn btn-danger btn-sm">유저 삭~제</a>
+        </td>
+      </tr>
+    </th:block>
+    <tr><td colspan="6" class="m-0 p-0"></td></tr>
+  </table><br/>
+  <hr/>
+  <div>
+    <a href="/" class="btn btn-success">돌아가기</a>
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>
